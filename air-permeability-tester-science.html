@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Air Permeability Tester: How Airflow Works</title>
+
+  <meta name="description" content="Learn how an Air Permeability Tester measures airflow through porous textiles, paper and nonwovens—and which variables determine reliable results.">
+
+  <meta name="keywords" content="Air Permeability Tester, fabric air permeability, airflow through porous materials, textile breathability testing, ISO 9237, ASTM D737, Gurley air permeability">
+
+  <meta name="author" content="Apple Electroniks">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://appleelectroniks.github.io/air-permeability-tester-science.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Understanding the Science of Airflow Through Porous Materials">
+  <meta property="og:description" content="Learn how an Air Permeability Tester measures airflow through textiles, paper, nonwovens and other porous materials.">
+  <meta property="og:url" content="https://appleelectroniks.github.io/air-permeability-tester-science.html">
+  <meta property="og:site_name" content="Apple Electroniks">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Air Permeability Tester: How Airflow Works">
+  <meta name="twitter:description" content="Understand the science behind airflow, pressure difference, pore structure and air-permeability testing.">
+
+  <style>
+    :root {
+      --primary: #073763;
+      --secondary: #0b5e9a;
+      --accent: #c90b18;
+      --background: #f4f7fa;
+      --surface: #ffffff;
+      --text: #263442;
+      --muted: #617181;
+      --border: #dce5ec;
+      --light-blue: #edf6fc;
+      --light-red: #fff2f3;
+      --shadow: 0 10px 30px rgba(7, 55, 99, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px;
+    }
+
+    .header-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--primary);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .main-site-link {
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 9px 15px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .main-site-link:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(4, 39, 72, 0.97), rgba(11, 94, 154, 0.92)),
+        radial-gradient(circle at right, #2d83bc, #073763);
+      color: #ffffff;
+      padding: 76px 24px;
+    }
+
+    .hero-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 0 20px;
+      color: #ffffff;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.12;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0;
+      color: #e8f3fb;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .article-layout {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 45px 24px 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 300px;
+      gap: 38px;
+      align-items: start;
+    }
+
+    article,
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    article {
+      padding: 42px;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .summary {
+      margin: 0 0 30px;
+      border-left: 5px solid var(--accent);
+      background: var(--light-red);
+      padding: 22px 24px;
+      font-size: 18px;
+    }
+
+    .definition {
+      margin: 24px 0;
+      border-left: 5px solid var(--secondary);
+      background: var(--light-blue);
+      padding: 20px 24px;
+    }
+
+    h2 {
+      margin-top: 52px;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin-top: 28px;
+      color: var(--primary);
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    ul,
+    ol {
+      margin: 18px 0 24px;
+      padding-left: 25px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .toc {
+      margin: 32px 0 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fafcfe;
+      padding: 26px 28px;
+    }
+
+    .toc h2 {
+      margin: 0 0 15px;
+      font-size: 24px;
+    }
+
+    .toc ol {
+      margin-bottom: 0;
+    }
+
+    .formula {
+      overflow-x: auto;
+      margin: 25px 0;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 25px 0 30px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 650px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    tr:nth-child(even) td {
+      background: #f7fafc;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      margin: 42px 0 10px;
+      border-radius: 12px;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #ffffff;
+      padding: 30px;
+    }
+
+    .cta h2 {
+      margin: 0 0 12px;
+      color: #ffffff;
+    }
+
+    .cta p {
+      color: #edf7fd;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 8px;
+      background: #ffffff;
+      color: var(--primary);
+      border-radius: 6px;
+      padding: 11px 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 22px;
+    }
+
+    .sidebar-card {
+      margin-bottom: 22px;
+      padding: 24px;
+    }
+
+    .sidebar-card h2 {
+      margin: 0 0 15px;
+      font-size: 22px;
+    }
+
+    .sidebar-card ul {
+      margin-bottom: 0;
+    }
+
+    .sidebar-card li {
+      margin-bottom: 12px;
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 18px 20px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    footer {
+      background: #042848;
+      color: #dceaf3;
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      .site-header,
+      .hero,
+      .article-layout {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      article {
+        padding: 24px 20px;
+      }
+
+      .hero {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How an Air Permeability Tester Explains Airflow Through Porous Materials",
+    "description": "Learn how an Air Permeability Tester measures airflow through porous textiles, paper and nonwovens.",
+    "author": {
+      "@type": "Organization",
+      "name": "Apple Electroniks",
+      "url": "https://www.appleelectroniks.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Apple Electroniks",
+      "url": "https://www.appleelectroniks.com/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://appleelectroniks.github.io/air-permeability-tester-science.html"
+    },
+    "datePublished": "2026-09-23",
+    "dateModified": "2026-09-23",
+    "keywords": [
+      "Air Permeability Tester",
+      "fabric air permeability",
+      "ISO 9237",
+      "ASTM D737",
+      "Gurley air permeability"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does an Air Permeability Tester measure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An Air Permeability Tester measures the rate of airflow through a defined material area at a specified pressure difference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does higher air permeability mean better material performance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily. High air permeability may benefit breathable clothing but may be unsuitable for barrier packaging or filtration media."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between porosity and air permeability?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Porosity describes the void space inside a material, while air permeability describes how readily air travels through its connected pores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why must test pressure be reported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Airflow normally changes with pressure difference, so results obtained at different pressures should not be treated as directly comparable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a high Gurley value mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A high Gurley value means that air took longer to cross the specimen, indicating lower air permeability under the Gurley method."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is air permeability the same as water-vapour permeability?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Air permeability measures bulk airflow through pores, while water-vapour permeability measures moisture-vapour transmission."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="https://www.appleelectroniks.com/">
+        APPLE <span>ELECTRONIKS</span>
+      </a>
+
+      <a class="main-site-link" href="https://www.appleelectroniks.com/" target="_blank" rel="noopener">
+        Visit Official Website
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Material Testing Guide</span>
+
+      <h1>How an Air Permeability Tester Explains Airflow Through Porous Materials</h1>
+
+      <p>
+        Learn how pressure difference, pore structure, thickness and test
+        conditions determine airflow through textiles, paper, nonwovens and
+        other porous materials.
+      </p>
+    </div>
+  </section>
+
+  <main class="article-layout">
+
+    <article>
+      <div class="article-meta">
+        <span>Published by Apple Electroniks</span>
+        <span>Updated: September 23, 2026</span>
+        <span>Estimated reading time: 10 minutes</span>
+      </div>
+
+      <p class="summary">
+        An <strong>Air Permeability Tester</strong> measures the volume of air
+        passing through a defined material area under a controlled pressure
+        difference. The result helps manufacturers quantify breathability,
+        porosity, filtration resistance and production consistency instead of
+        relying on subjective observations.
+      </p>
+
+      <div class="definition">
+        <strong>Air permeability is the rate at which air flows perpendicularly
+        through a material under specified conditions of pressure, area and
+        time.</strong>
+      </div>
+
+      <p>
+        Apple Electroniks supplies automatic and Gurley-type permeability
+        instruments for textiles, nonwovens, paper, films, leather and
+        technical materials. Selecting the correct instrument requires matching
+        its pressure range, test area and measuring principle to the applicable
+        test standard.
+      </p>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#airflow-science">What causes air to move through porous materials?</a></li>
+          <li><a href="#tester-operation">How does an Air Permeability Tester work?</a></li>
+          <li><a href="#material-properties">Which material properties control permeability?</a></li>
+          <li><a href="#results">How are air-permeability results expressed?</a></li>
+          <li><a href="#standards">Which testing standards apply?</a></li>
+          <li><a href="#gurley-comparison">What is the difference between direct-flow and Gurley testing?</a></li>
+          <li><a href="#reliable-results">How can laboratories obtain reliable results?</a></li>
+          <li><a href="#tester-selection">How should a tester be selected?</a></li>
+          <li><a href="#faq">Frequently asked questions</a></li>
+        </ol>
+      </nav>
+
+      <section id="airflow-science">
+        <h2>What Causes Air to Move Through Porous Materials?</h2>
+
+        <p>
+          <strong>Air moves through a porous material when pressure on one side
+          is higher than pressure on the other. The resulting pressure gradient
+          drives air into connected pores and channels. Material thickness,
+          open-pore dimensions, pore connectivity and air viscosity resist that
+          movement and determine the resulting flow rate.</strong>
+        </p>
+
+        <p>
+          <strong>A porous material is a solid structure containing voids
+          through which a fluid may potentially travel.</strong> For airflow to
+          cross an entire specimen, some voids must form connected pathways
+          between its two surfaces. High internal void volume does not guarantee
+          high permeability when those voids are closed or poorly connected.
+        </p>
+
+        <p>
+          A peer-reviewed woven-fabric study evaluated pore-scale Reynolds
+          numbers from approximately <strong>2.4 to 76.9</strong>. The
+          simulations used a <strong>200 Pa</strong> pressure difference and air
+          at <strong>298 K</strong>, indicating laminar to weakly inertial flow
+          through the studied structures.
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12986539/"
+             target="_blank" rel="noopener">
+            View the peer-reviewed fabric airflow study
+          </a>.
+        </p>
+
+        <ul>
+          <li>A higher pressure difference generally creates greater airflow.</li>
+          <li>Smaller and less-connected pores increase flow resistance.</li>
+          <li>Greater thickness produces a longer airflow path.</li>
+          <li>Irregular pores force air to change direction.</li>
+          <li>Coatings can partially or completely close open passages.</li>
+        </ul>
+
+        <p>
+          NIST research also connects fluid permeability with material
+          microstructure and characteristic length scales.
+          <a href="https://www.nist.gov/el/part-iii-chapter-6-fluid-flow"
+             target="_blank" rel="noopener">
+            Read the NIST fluid-flow research overview
+          </a>.
+        </p>
+      </section>
+
+      <section id="tester-operation">
+        <h2>How Does an Air Permeability Tester Work?</h2>
+
+        <p>
+          <strong>An Air Permeability Tester clamps a specimen over a known
+          opening, creates a specified pressure difference across it and
+          measures the airflow required to maintain that pressure. Dividing
+          volumetric airflow by the exposed test area produces an
+          air-permeability result suitable for comparison with specifications
+          or previous batches.</strong>
+        </p>
+
+        <ol>
+          <li>Condition and prepare the specimen.</li>
+          <li>Install the required test head or aperture.</li>
+          <li>Place the specimen flat across the opening.</li>
+          <li>Clamp the specimen to prevent edge leakage.</li>
+          <li>Set the specified differential pressure and reporting unit.</li>
+          <li>Draw or force air through the exposed area.</li>
+          <li>Allow the pressure and airflow readings to stabilize.</li>
+          <li>Record the result and repeat at additional locations.</li>
+        </ol>
+
+        <div class="formula" aria-label="Air permeability formula">
+          Air Permeability (R) = Volumetric Airflow (Q) ÷ Test Area (A)
+        </div>
+
+        <p>
+          Pressure must accompany every reported result. A value measured at
+          <strong>100 Pa</strong> should not automatically be compared with a
+          result obtained at <strong>200 Pa</strong>.
+        </p>
+
+        <p>
+          Apple Electroniks lists its APT/Auto Air Permeability Tester with a
+          pressure range of <strong>10 to 3,500 Pa</strong>, a standard test
+          area of <strong>20 cm²</strong> and optional heads measuring
+          <strong>5, 25, 38, 50 and 100 cm²</strong>. The listed measurement
+          accuracy is <strong>±2% of the displayed value</strong>.
+        </p>
+
+        <p>
+          <a href="https://www.appleelectroniks.com/apt-auto-air-permeability-tester.html"
+             target="_blank" rel="noopener">
+            View the APT/Auto Air Permeability Tester
+          </a>.
+        </p>
+      </section>
+
+      <section id="material-properties">
+        <h2>Which Material Properties Control Air Permeability?</h2>
+
+        <p>
+          <strong>Air permeability is controlled principally by pore size,
+          open-area percentage, pore connectivity, thickness and structural
+          compression. In textiles, yarn diameter, yarn density, weave or knit
+          geometry, fibre packing and finishing treatments collectively shape
+          the available airflow pathways.</strong>
+        </p>
+
+        <p>
+          For woven fabrics, spaces between warp and weft yarns commonly form
+          the principal airflow channels. Increasing the number of yarns per
+          unit length typically reduces those openings.
+        </p>
+
+        <p>
+          One peer-reviewed investigation modelled <strong>48 fabric
+          configurations</strong> comprising <strong>six weave types, four set
+          densities and two geometric approaches</strong>. Increasing set
+          density reduced pore size and air permeability in the investigated
+          structures.
+        </p>
+
+        <ul>
+          <li><strong>Construction:</strong> Woven, knitted and nonwoven materials create different pathways.</li>
+          <li><strong>Yarn or fibre density:</strong> Tighter packing normally restricts airflow.</li>
+          <li><strong>Thickness:</strong> A thicker material creates a longer resistant path.</li>
+          <li><strong>Coatings:</strong> Films, binders and finishes may obstruct pores.</li>
+          <li><strong>Compression:</strong> Pressure can reduce thickness and void volume.</li>
+          <li><strong>Moisture:</strong> Fibre swelling may change the available passages.</li>
+          <li><strong>Production variation:</strong> Uneven coating or yarn spacing creates local differences.</li>
+        </ul>
+
+        <div class="definition">
+          <strong>Porosity is the proportion of a material’s volume occupied by
+          voids, whereas permeability describes how readily air travels through
+          connected voids.</strong>
+        </div>
+
+        <p>
+          Two products can therefore have similar total porosity but very
+          different airflow performance. This distinction is especially
+          important when testing closed-cell foams, membranes and coated
+          technical fabrics.
+        </p>
+      </section>
+
+      <section id="results">
+        <h2>How Are Air-Permeability Results Expressed?</h2>
+
+        <p>
+          <strong>Air-permeability results are usually expressed as airflow per
+          unit area at a stated pressure difference. Common units include
+          litres per square metre per second, cubic centimetres per square
+          centimetre per second and millimetres per second. Gurley instruments
+          instead report the time required for a fixed air volume to pass.</strong>
+        </p>
+
+        <div class="formula">
+          1 cm³/cm²/s = 10 L/m²/s = 10 mm/s
+        </div>
+
+        <p>
+          Unit conversion does not make results comparable when the pressure,
+          test area, conditioning atmosphere or test apparatus differs. A
+          complete report should include:
+        </p>
+
+        <ul>
+          <li>Material identification and specimen orientation</li>
+          <li>Applicable standard and edition</li>
+          <li>Exposed test area</li>
+          <li>Applied differential pressure</li>
+          <li>Individual readings and arithmetic mean</li>
+          <li>Measurement unit</li>
+          <li>Conditioning atmosphere</li>
+          <li>Number of test locations</li>
+          <li>Any leakage, deformation or test anomaly</li>
+        </ul>
+
+        <p>
+          The Apple Electroniks APT/Auto page lists a range of
+          <strong>1 to 10,000 L/m²/s</strong> with a <strong>20 cm²</strong>
+          test area. For a <strong>38 cm²</strong> head, the published ranges
+          include <strong>0.05 to 700 cm³/cm²/s</strong> and
+          <strong>2 to 24,000 m³/m²/h</strong>.
+        </p>
+      </section>
+
+      <section id="standards">
+        <h2>Which Standards Apply to Air-Permeability Testing?</h2>
+
+        <p>
+          <strong>The applicable standard depends on the material and its
+          intended use. ISO 9237 and ASTM D737 are widely specified for textile
+          fabrics, while ISO 5636-5 covers the Gurley method for paper and
+          board. Other methods apply to flexible foams, nonwovens and specialized
+          industrial materials.</strong>
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Standard</th>
+                <th>Typical Material</th>
+                <th>Measurement Approach</th>
+                <th>Common Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ISO 9237</td>
+                <td>Woven, knitted, nonwoven and technical fabrics</td>
+                <td>Airflow through a defined area at a specified pressure</td>
+                <td>Flow per unit area</td>
+              </tr>
+              <tr>
+                <td>ASTM D737</td>
+                <td>Textile fabrics</td>
+                <td>Perpendicular airflow under a prescribed pressure difference</td>
+                <td>Volumetric flow per unit area</td>
+              </tr>
+              <tr>
+                <td>ISO 5636-5</td>
+                <td>Paper and board</td>
+                <td>Time for a defined air volume using a Gurley apparatus</td>
+                <td>Gurley seconds</td>
+              </tr>
+              <tr>
+                <td>ASTM D3574</td>
+                <td>Flexible cellular materials</td>
+                <td>Airflow through flexible foam</td>
+                <td>Specified flow result</td>
+              </tr>
+              <tr>
+                <td>TAPPI T 251</td>
+                <td>Porous paper and related materials</td>
+                <td>Air-permeance measurement</td>
+                <td>Method-dependent result</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>ISO 9237 is an international method for measuring the
+          permeability of fabrics to air.</strong> ISO states that the method
+          applies to most fabrics, including industrial fabrics, nonwovens and
+          permeable made-up textile articles.
+        </p>
+
+        <p>
+          ISO 9237 was published in <strong>June 1995</strong> and was reviewed
+          and confirmed in <strong>2023</strong>.
+          <a href="https://www.iso.org/standard/16869.html"
+             target="_blank" rel="noopener">
+            View the official ISO 9237 record
+          </a>.
+        </p>
+
+        <p>
+          ASTM lists <strong>ASTM D737-18(2023)</strong> as its test method for
+          the air permeability of textile fabrics.
+          <a href="https://www.astm.org/d0737-18r23.html"
+             target="_blank" rel="noopener">
+            View the official ASTM D737 record
+          </a>.
+        </p>
+      </section>
+
+      <section id="gurley-comparison">
+        <h2>What Is the Difference Between Direct-Flow and Gurley Testing?</h2>
+
+        <p>
+          <strong>Direct-flow instruments measure the volume or velocity of air
+          crossing a specimen at controlled pressure. Gurley instruments
+          measure how many seconds a fixed volume of air takes to pass through
+          it. Direct-flow testing suits many textiles and nonwovens, while
+          Gurley testing is commonly specified for paper and board.</strong>
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Direct-Flow Tester</th>
+                <th>Gurley-Type Tester</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary measurement</td>
+                <td>Airflow rate</td>
+                <td>Elapsed time</td>
+              </tr>
+              <tr>
+                <td>Typical output</td>
+                <td>L/m²/s, mm/s or equivalent</td>
+                <td>Gurley seconds</td>
+              </tr>
+              <tr>
+                <td>Result direction</td>
+                <td>Higher value means greater airflow</td>
+                <td>Higher value means lower permeability</td>
+              </tr>
+              <tr>
+                <td>Typical materials</td>
+                <td>Textiles, nonwovens, foam and leather</td>
+                <td>Paper, board, films and membranes</td>
+              </tr>
+              <tr>
+                <td>Common methods</td>
+                <td>ISO 9237 and ASTM D737</td>
+                <td>ISO 5636-5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Apple Electroniks lists its APTG Gurley-Type Air Permeability Tester
+          with a <strong>567 g</strong> inner cylinder,
+          <strong>28.6 mm²</strong> test area and
+          <strong>±0.1-second</strong> timing accuracy.
+        </p>
+
+        <p>
+          The cylinder is graduated in <strong>25 mL increments from 0 to
+          100 mL</strong> and <strong>50 mL increments from 100 to 300 mL</strong>.
+          <a href="https://www.appleelectroniks.com/aptg-air-permeability-tester-gurley-type.html"
+             target="_blank" rel="noopener">
+            View the APTG Gurley-Type Tester
+          </a>.
+        </p>
+
+        <p>
+          A Gurley value cannot be reliably converted into an ISO 9237 result
+          without a validated relationship for the particular material,
+          pressure regime and instruments involved.
+        </p>
+      </section>
+
+      <section id="reliable-results">
+        <h2>How Should Laboratories Obtain Reliable Results?</h2>
+
+        <p>
+          <strong>Reliable air-permeability testing requires conditioned
+          specimens, representative sampling, correct pressure, an undamaged
+          seal and a verified instrument. Laboratories should test multiple
+          locations, avoid folds and edges unless required, and record every
+          condition needed to reproduce the measurement.</strong>
+        </p>
+
+        <ol>
+          <li><strong>Condition specimens:</strong> Follow the temperature, humidity and duration required by the standard.</li>
+          <li><strong>Select representative areas:</strong> Include expected manufacturing variation.</li>
+          <li><strong>Verify the test head:</strong> Confirm its area and measuring range.</li>
+          <li><strong>Inspect the seal:</strong> Prevent air from bypassing the specimen.</li>
+          <li><strong>Apply the required pressure:</strong> Do not select pressure solely for convenience.</li>
+          <li><strong>Repeat measurements:</strong> Calculate the mean and investigate unusual variation.</li>
+          <li><strong>Record traceability:</strong> Identify the instrument, operator, batch and calibration status.</li>
+        </ol>
+
+        <p>
+          Test-head area can influence repeatability. A small head may be
+          dominated by one large opening, whereas a larger area averages more
+          of an irregular structure.
+        </p>
+
+        <p>
+          Calibration establishes measurement traceability, while routine
+          verification checks whether the instrument continues to operate
+          acceptably between calibrations.
+        </p>
+      </section>
+
+      <section id="tester-selection">
+        <h2>How Should an Air Permeability Tester Be Selected?</h2>
+
+        <p>
+          <strong>Select an Air Permeability Tester by matching the required
+          standard, specimen material, expected airflow range, differential
+          pressure and test-head area. Then assess accuracy, calibration
+          support, data reporting, laboratory throughput and service
+          availability.</strong>
+        </p>
+
+        <ul>
+          <li>Confirm the required standard and edition.</li>
+          <li>Identify whether the specimen is textile, paper, foam, film or leather.</li>
+          <li>Determine whether the method measures airflow or elapsed time.</li>
+          <li>Confirm the required pressure and exposed area.</li>
+          <li>Estimate the expected permeability range.</li>
+          <li>Identify the number of tests required per shift.</li>
+          <li>Choose the necessary reporting units and export formats.</li>
+          <li>Confirm installation, training and calibration requirements.</li>
+        </ul>
+
+        <p>
+          Apple Electroniks lists the APT/Auto with a
+          <strong>10–3,500 Pa</strong> pressure range and
+          <strong>±2%</strong> indicated accuracy. Its supported methods include
+          ISO 9237, ASTM D737, ASTM D3574 and TAPPI T 251. The APTG model is
+          intended for the ISO 5636-5 Gurley method.
+        </p>
+
+        <div class="cta">
+          <h2>Need Air-Permeability Testing Equipment?</h2>
+
+          <p>
+            Explore automatic and Gurley-type permeability testers for textile,
+            paper, nonwoven, foam, film, leather and technical-material testing.
+          </p>
+
+          <a href="https://www.appleelectroniks.com/air-water-vapour-permeability-testers.html"
+             target="_blank" rel="noopener">
+            Explore Apple Electroniks Testers
+          </a>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <p>
+          <strong>Common air-permeability questions concern test principles,
+          pressure, reporting units, standards and material suitability. These
+          answers distinguish direct-flow testing from Gurley testing and
+          identify the information required for reproducible material
+          evaluation.</strong>
+        </p>
+
+        <div class="faq-item">
+          <h3>What does an Air Permeability Tester measure?</h3>
+          <p>
+            It measures the rate of airflow through a defined material area at
+            a specified pressure difference.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Does higher air permeability mean better performance?</h3>
+          <p>
+            Not necessarily. High permeability may benefit breathable clothing
+            but may be undesirable in barrier packaging or filtration media.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is the difference between porosity and permeability?</h3>
+          <p>
+            Porosity describes the void space inside a material. Permeability
+            describes how readily air travels through connected pores.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why must the test pressure be reported?</h3>
+          <p>
+            Airflow changes with pressure difference. Results obtained at
+            different pressures should not be assumed to be directly comparable.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can one tester evaluate textiles and paper?</h3>
+          <p>
+            Some direct-flow instruments support multiple materials, but
+            Gurley paper testing uses a different measurement principle. The
+            required standard must be confirmed first.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What does a high Gurley value mean?</h3>
+          <p>
+            It means a fixed air volume required more time to cross the
+            specimen, indicating lower permeability under that method.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is air permeability the same as water-vapour permeability?</h3>
+          <p>
+            No. Air permeability measures bulk airflow through pores, while
+            water-vapour permeability measures moisture-vapour transmission.
+          </p>
+        </div>
+      </section>
+
+      <p class="source-note">
+        Product specifications should be confirmed with Apple Electroniks before
+        purchase. Always use the complete applicable testing standard when
+        performing compliance or accredited laboratory testing.
+      </p>
+    </article>
+
+    <aside class="sidebar" aria-label="Related resources">
+      <div class="sidebar-card">
+        <h2>Related Equipment</h2>
+        <ul>
+          <li>
+            <a href="https://www.appleelectroniks.com/air-water-vapour-permeability-testers.html"
+               target="_blank" rel="noopener">
+              Air and Water-Vapour Permeability Testers
+            </a>
+          </li>
+          <li>
+            <a href="https://www.appleelectroniks.com/apt-auto-air-permeability-tester.html"
+               target="_blank" rel="noopener">
+              APT/Auto Air Permeability Tester
+            </a>
+          </li>
+          <li>
+            <a href="https://www.appleelectroniks.com/aptg-air-permeability-tester-gurley-type.html"
+               target="_blank" rel="noopener">
+              APTG Gurley-Type Tester
+            </a>
+          </li>
+          <li>
+            <a href="https://www.appleelectroniks.com/fiber-fabric-yarn-testing.html"
+               target="_blank" rel="noopener">
+              Fiber, Fabric and Yarn Testing
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h2>Request Guidance</h2>
+        <p>
+          Send your standard, specimen material, pressure requirement, test area
+          and expected measurement range.
+        </p>
+
+        <a class="main-site-link"
+           href="https://www.appleelectroniks.com/contact-us.html"
+           target="_blank" rel="noopener">
+          Contact Apple Electroniks
+        </a>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026
+      <a href="https://www.appleelectroniks.com/" target="_blank" rel="noopener">
+        Apple Electroniks
+      </a>.
+      Material testing equipment manufacturer in Vadodara, Gujarat, India.
+    </p>
+  </footer>
+
+</body>
+</html>
